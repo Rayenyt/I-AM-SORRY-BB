@@ -1,109 +1,138 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>💌 رسالة اعتذار إلى تسنيم 💌</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>إلى تسنيم 💖</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap');
 
 body {
   margin: 0;
-  padding: 0;
-  font-family: 'Cairo', sans-serif;
   height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  overflow: hidden;
-  color: white;
-  background: linear-gradient(270deg, #ff416c, #ff4b2b, #6a11cb, #2575fc, #00c6ff, #f0c27b, #ff0099);
+  align-items: center;
+  font-family: 'Tajawal', sans-serif;
+  background: linear-gradient(45deg, #ff0057, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8);
   background-size: 300% 300%;
-  animation: gradientShift 10s ease infinite;
+  animation: bgShift 10s infinite alternate;
+  overflow: hidden;
 }
 
-@keyframes gradientShift {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+@keyframes bgShift {
+  0% {background-position: left;}
+  100% {background-position: right;}
 }
 
 .container {
-  position: relative;
-  max-width: 750px;
-  padding: 25px 30px;
-  background: rgba(0, 0, 0, 0.55);
-  border-radius: 25px;
-  box-shadow: 0 0 30px rgba(255,255,255,0.4);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 400px;
   text-align: center;
-  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  position: relative;
+  backdrop-filter: blur(10px);
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-.hearts {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 0;
+h2 {
+  color: #fff;
+  text-shadow: 0 0 20px #ff00c8, 0 0 40px #ff00c8;
+  animation: pulse 2s infinite alternate;
+}
+@keyframes pulse {
+  from { text-shadow: 0 0 10px #ff00c8; }
+  to { text-shadow: 0 0 30px #00ffff; }
+}
+
+p {
+  color: #fff;
+  line-height: 1.8;
+  font-size: 1.1em;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 3s forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  font-size: 1em;
+  color: white;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.4s;
+  box-shadow: 0 0 15px #fff;
+}
+button:hover {
+  background: #fff;
+  color: #ff008c;
+  box-shadow: 0 0 30px #fff;
 }
 
 .heart {
   position: absolute;
-  bottom: -10px;
+  color: #ff77e9;
   font-size: 20px;
-  color: rgba(255,255,255,0.6);
-  animation: floatUp 10s linear infinite;
+  animation: floatHeart 6s linear infinite;
+  opacity: 0.8;
 }
-
-@keyframes floatUp {
-  0% {transform: translateY(0) scale(1);}
-  100% {transform: translateY(-110vh) scale(1.8);}
+@keyframes floatHeart {
+  0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
 }
+</style>
+</head>
+<body>
 
-.title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  animation: glow 2s ease-in-out infinite alternate, fadeIn 2s ease;
-  text-shadow: 0 0 20px #fff, 0 0 40px #ff0099, 0 0 60px #ff0099;
+<div class="container">
+  <h2>💔 إلى تسنيم 💔</h2>
+  <p style="animation-delay: 1s;">
+    آسف من أعماق قلبي يا تسنيم،  
+    على كل لحظة وجعتك فيها دون قصد،  
+    على كل كلمة ما كانت في محلها،  
+    وعلى أي دمعة كانت بسببي 💔.
+  </p>
+  <p style="animation-delay: 3s;">
+    والله، كل يوم يمر من غير رضاك  
+    كأنه سنة من الندم.  
+    ما أردت يومًا أكون سبب حزنك،  
+    أنتِ الأمان والفرح في حياتي 💖.
+  </p>
+  <p style="animation-delay: 5s;">
+    سامحيني، وخليني نرجع مثل قبل،  
+    أقرب، أصدق، وأجمل من أي وقت مضى 🌹.
+  </p>
+  <button>❤️ سامحيني يا تسنيم ❤️</button>
+</div>
+
+<script>
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.textContent = '💖';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
 }
+setInterval(createHeart, 500);
+</script>
 
-@keyframes glow {
-  from {text-shadow: 0 0 10px #fff, 0 0 20px #ff0099, 0 0 30px #ff0099;}
-  to {text-shadow: 0 0 20px #fff, 0 0 40px #00c6ff, 0 0 60px #00c6ff;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(50px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-.message {
-  position: relative;
-  z-index: 2;
-  font-size: 1.2rem;
-  line-height: 2;
-  direction: rtl;
-  text-shadow: 0 0 8px rgba(255,255,255,0.6);
-  animation: fadeInText 3s ease forwards;
-}
-
-@keyframes fadeInText {
-  from {opacity: 0; transform: translateY(30px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-.line {
-  opacity: 0;
-  display: block;
-  animation: slideIn 1.5s forwards;
-}
-
-@keyframes slideIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+</body>
+</html>  to {opacity: 1; transform: translateY(0);}
 }
 
 .glow {
